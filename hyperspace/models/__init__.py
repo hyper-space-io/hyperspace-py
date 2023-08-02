@@ -14,6 +14,8 @@
 from __future__ import absolute_import
 
 # import models into model package
+from hyperspace.models.any_ofinline_response200 import AnyOfinlineResponse200
+from hyperspace.models.any_ofsearch_function_name_body import AnyOfsearchFunctionNameBody
 from hyperspace.models.auth_dto import AuthDto
 from hyperspace.models.document import Document
 from hyperspace.models.file_dto import FileDto

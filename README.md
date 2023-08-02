@@ -280,6 +280,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AnyOfinlineResponse200](docs/AnyOfinlineResponse200.md)
+ - [AnyOfsearchFunctionNameBody](docs/AnyOfsearchFunctionNameBody.md)
  - [AuthDto](docs/AuthDto.md)
  - [Document](docs/Document.md)
  - [FileDto](docs/FileDto.md)
