@@ -17,6 +17,7 @@ from multiprocessing.pool import ThreadPool
 import os
 import re
 import tempfile
+from typing import Optional
 
 # python 2 and python 3 compatibility library
 import six
@@ -62,6 +63,26 @@ class HyperspaceClientApi(HyperspaceApi):
         apicli = hyperspace.api_client.ApiClient(configuration=conf, header_name='Authorization',
                                                     header_value=access_token)
         super().__init__(api_client=apicli)
+
+    def search(self, body, size, collection_name, function_name: Optional[str] = None, **kwargs):  # noqa: E501
+        """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        :param async_req bool
+        :param SearchFunctionNameBody body: (required)
+        :param int size: (required)
+        :param str collection_name: (required)
+        :param str function_name:
+        :return: SearchFunctionNameBody
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        if function_name is None:
+            return super().search(body, size, collection_name)
+        else:
+            return super().search(body, size, collection_name, function_name=function_name)
+
 
 
 

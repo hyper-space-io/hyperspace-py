@@ -1305,45 +1305,43 @@ class HyperspaceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def search(self, body, size, collection_name, function_name, **kwargs):  # noqa: E501
+    def search(self, body, size, collection_name, **kwargs):  # noqa: E501
         """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
 
-        Search Options: 1) Search for all similar vectors. 2) ................ 3) ............. 4) ...........  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search(body, size, collection_name, function_name, async_req=True)
+        >>> thread = api.search(body, size, collection_name, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param SearchFunctionNameBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
-        :param str function_name: (required)
+        :param str function_name:
         :return: SearchFunctionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.search_with_http_info(body, size, collection_name, function_name, **kwargs)  # noqa: E501
+            return self.search_with_http_info(body, size, collection_name, **kwargs)  # noqa: E501
         else:
-            (data) = self.search_with_http_info(body, size, collection_name, function_name, **kwargs)  # noqa: E501
+            (data) = self.search_with_http_info(body, size, collection_name, **kwargs)  # noqa: E501
             return data
 
-    def search_with_http_info(self, body, size, collection_name, function_name, **kwargs):  # noqa: E501
+    def search_with_http_info(self, body, size, collection_name, **kwargs):  # noqa: E501
         """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
 
-        Search Options: 1) Search for all similar vectors. 2) ................ 3) ............. 4) ...........  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.search_with_http_info(body, size, collection_name, function_name, async_req=True)
+        >>> thread = api.search_with_http_info(body, size, collection_name, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param SearchFunctionNameBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
-        :param str function_name: (required)
+        :param str function_name:
         :return: SearchFunctionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1376,22 +1374,18 @@ class HyperspaceApi(object):
         if ('collection_name' not in params or
                 params['collection_name'] is None):
             raise ValueError("Missing the required parameter `collection_name` when calling `search`")  # noqa: E501
-        # verify the required parameter 'function_name' is set
-        if ('function_name' not in params or
-                params['function_name'] is None):
-            raise ValueError("Missing the required parameter `function_name` when calling `search`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
         if 'collection_name' in params:
             path_params['collectionName'] = params['collection_name']  # noqa: E501
-        if 'function_name' in params:
-            path_params['functionName'] = params['function_name']  # noqa: E501
 
         query_params = []
         if 'size' in params:
             query_params.append(('size', params['size']))  # noqa: E501
+        if 'function_name' in params:
+            query_params.append(('functionName', params['function_name']))  # noqa: E501
 
         header_params = {}
 

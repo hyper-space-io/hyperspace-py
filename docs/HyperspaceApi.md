@@ -642,11 +642,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search**
-> SearchFunctionNameBody search(body, size, collection_name, function_name)
+> SearchFunctionNameBody search(body, size, collection_name, function_name=function_name)
 
 Find top X similar documents in the dataset according to the selected search option.
-
-Search Options: 1) Search for all similar vectors. 2) ................ 3) ............. 4) ...........
 
 ### Example
 ```python
@@ -662,11 +660,11 @@ api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.SearchFunctionNameBody() # SearchFunctionNameBody | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
-function_name = 'function_name_example' # str | 
+function_name = 'function_name_example' # str |  (optional)
 
 try:
     # Find top X similar documents in the dataset according to the selected search option.
-    api_response = api_instance.search(body, size, collection_name, function_name)
+    api_response = api_instance.search(body, size, collection_name, function_name=function_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->search: %s\n" % e)
@@ -679,7 +677,7 @@ Name | Type | Description  | Notes
  **body** | [**SearchFunctionNameBody**](SearchFunctionNameBody.md)|  | 
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
- **function_name** | **str**|  | 
+ **function_name** | **str**|  | [optional] 
 
 ### Return type
 
