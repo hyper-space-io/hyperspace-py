@@ -10,25 +10,14 @@
 """
 from __future__ import absolute_import
 
-import datetime
-import json
-import mimetypes
-from multiprocessing.pool import ThreadPool
-import os
-import re
-import tempfile
 from typing import Optional
 
-# python 2 and python 3 compatibility library
-import six
-from six.moves.urllib.parse import quote
-
-from hyperspace.configuration import Configuration
 import hyperspace.models
-from hyperspace import rest
-
 from hyperspace.api.hyperspace_api import HyperspaceApi
+from hyperspace.api_client import *
 
+# python 2 and python 3 compatibility library
+from hyperspace.rest import ApiException
 
 class HyperspaceClientApi(HyperspaceApi):
     """Generic API client for Swagger client library builds.
@@ -51,18 +40,35 @@ class HyperspaceClientApi(HyperspaceApi):
     """
 
     def __init__(self, host, username, password):
-        conf = hyperspace.configuration.Configuration()
-        conf.host = host
-        username = username
-        password = password
-        apicli = hyperspace.api_client.ApiClient(configuration=conf)
-        super().__init__(api_client=apicli)
+        self.configuration = hyperspace.configuration.Configuration()
+        self.configuration.host = host
+        self.username = username
+        self.password = password
+        api_client = hyperspace.api_client.ApiClient(configuration=self.configuration)
+        super().__init__(api_client=api_client)
         body = {"username": username, "password": password}
         login_response = self.login(body)
         access_token = "Bearer " + login_response.token
-        apicli = hyperspace.api_client.ApiClient(configuration=conf, header_name='Authorization',
-                                                    header_value=access_token)
-        super().__init__(api_client=apicli)
+        api_client = hyperspace.api_client.ApiClient(configuration=self.configuration, header_name='Authorization',
+                                                     header_value=access_token)
+
+        super().__init__(api_client=api_client)
+        old_func_call_api = self.api_client.call_api
+
+        def retry_jwt(*args, **kwargs):
+            try:
+                return old_func_call_api(*args, **kwargs)
+            except ApiException as e:
+                if "token expired" in str(e.body):
+                    login_body = {"username": username, "password": password}
+                    login_response = self.login(login_body)
+                    access_token = "Bearer " + login_response.token
+                    api_client.set_default_header('Authorization', access_token)
+                    return old_func_call_api(*args, **kwargs)
+                else:
+                    raise
+
+        self.api_client.call_api = retry_jwt
 
     def search(self, body, size, collection_name, function_name: Optional[str] = None, **kwargs):  # noqa: E501
         """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
@@ -82,7 +88,3 @@ class HyperspaceClientApi(HyperspaceApi):
             return super().search(body, size, collection_name)
         else:
             return super().search(body, size, collection_name, function_name=function_name)
-
-
-
-
