@@ -335,12 +335,12 @@ class HyperspaceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cluster_status(self, **kwargs):  # noqa: E501
-        """Get the status of all data-nodes  # noqa: E501
+    def collections_info(self, **kwargs):  # noqa: E501
+        """Get the information of all the collections  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cluster_status(async_req=True)
+        >>> thread = api.collections_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -350,17 +350,17 @@ class HyperspaceApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.cluster_status_with_http_info(**kwargs)  # noqa: E501
+            return self.collections_info_with_http_info(**kwargs)  # noqa: E501
         else:
-            (data) = self.cluster_status_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.collections_info_with_http_info(**kwargs)  # noqa: E501
             return data
 
-    def cluster_status_with_http_info(self, **kwargs):  # noqa: E501
-        """Get the status of all data-nodes  # noqa: E501
+    def collections_info_with_http_info(self, **kwargs):  # noqa: E501
+        """Get the information of all the collections  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cluster_status_with_http_info(async_req=True)
+        >>> thread = api.collections_info_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -380,7 +380,7 @@ class HyperspaceApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method cluster_status" % key
+                    " to method collections_info" % key
                 )
             params[key] = val
         del params['kwargs']
@@ -405,7 +405,7 @@ class HyperspaceApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v1/clusterStatus', 'GET',
+            '/api/v1/collectionsInfo', 'GET',
             path_params,
             query_params,
             header_params,

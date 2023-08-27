@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**add_batch**](HyperspaceApi.md#add_batch) | **PUT** /api/v1/{collectionName}/batch | Add a new batch to the collection
 [**add_document**](HyperspaceApi.md#add_document) | **PUT** /api/v1/{collectionName}/document/add | Add a new document to the collection
 [**clear_collection**](HyperspaceApi.md#clear_collection) | **GET** /api/v1/{collectionName}/delete | Clear all collection vectors
-[**cluster_status**](HyperspaceApi.md#cluster_status) | **GET** /api/v1/clusterStatus | Get the status of all data-nodes
+[**collections_info**](HyperspaceApi.md#collections_info) | **GET** /api/v1/collectionsInfo | Get the information of all the collections
 [**commit**](HyperspaceApi.md#commit) | **GET** /api/v1/{collectionName}/commit | Commit
 [**create_collection**](HyperspaceApi.md#create_collection) | **PUT** /api/v1/collection/{collectionName} | Create a new collection
 [**delete_collection**](HyperspaceApi.md#delete_collection) | **GET** /api/v1/collection/{collectionName} | Delete a collection
@@ -166,10 +166,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **cluster_status**
-> SearchFunctionNameBody cluster_status()
+# **collections_info**
+> SearchFunctionNameBody collections_info()
 
-Get the status of all data-nodes
+Get the information of all the collections
 
 ### Example
 ```python
@@ -184,11 +184,11 @@ from pprint import pprint
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 
 try:
-    # Get the status of all data-nodes
-    api_response = api_instance.cluster_status()
+    # Get the information of all the collections
+    api_response = api_instance.collections_info()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling HyperspaceApi->cluster_status: %s\n" % e)
+    print("Exception when calling HyperspaceApi->collections_info: %s\n" % e)
 ```
 
 ### Parameters

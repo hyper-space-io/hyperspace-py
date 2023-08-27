@@ -94,11 +94,11 @@ except ApiException as e:
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 
 try:
-    # Get the status of all data-nodes
-    api_response = api_instance.cluster_status()
+    # Get the information of all the collections
+    api_response = api_instance.collections_info()
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling HyperspaceApi->cluster_status: %s\n" % e)
+    print("Exception when calling HyperspaceApi->collections_info: %s\n" % e)
 
 
 # create an instance of the API class
@@ -264,7 +264,7 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**add_batch**](docs/HyperspaceApi.md#add_batch) | **PUT** /api/v1/{collectionName}/batch | Add a new batch to the collection
 *HyperspaceApi* | [**add_document**](docs/HyperspaceApi.md#add_document) | **PUT** /api/v1/{collectionName}/document/add | Add a new document to the collection
 *HyperspaceApi* | [**clear_collection**](docs/HyperspaceApi.md#clear_collection) | **GET** /api/v1/{collectionName}/delete | Clear all collection vectors
-*HyperspaceApi* | [**cluster_status**](docs/HyperspaceApi.md#cluster_status) | **GET** /api/v1/clusterStatus | Get the status of all data-nodes
+*HyperspaceApi* | [**collections_info**](docs/HyperspaceApi.md#collections_info) | **GET** /api/v1/collectionsInfo | Get the information of all the collections
 *HyperspaceApi* | [**commit**](docs/HyperspaceApi.md#commit) | **GET** /api/v1/{collectionName}/commit | Commit
 *HyperspaceApi* | [**create_collection**](docs/HyperspaceApi.md#create_collection) | **PUT** /api/v1/collection/{collectionName} | Create a new collection
 *HyperspaceApi* | [**delete_collection**](docs/HyperspaceApi.md#delete_collection) | **GET** /api/v1/collection/{collectionName} | Delete a collection

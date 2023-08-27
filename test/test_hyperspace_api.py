@@ -49,10 +49,10 @@ class TestHyperspaceApi(unittest.TestCase):
         """
         pass
 
-    def test_cluster_status(self):
-        """Test case for cluster_status
+    def test_collections_info(self):
+        """Test case for collections_info
 
-        Get the status of all data-nodes  # noqa: E501
+        Get the information of all the collections  # noqa: E501
         """
         pass
 
