@@ -20,8 +20,6 @@ from hyperspace.api.hyperspace_api import HyperspaceApi
 from hyperspace.api_client import ApiClient
 from hyperspace.configuration import Configuration
 # import models into sdk package
-from hyperspace.models.any_ofinline_response200 import AnyOfinlineResponse200
-from hyperspace.models.any_ofsearch_function_name_body import AnyOfsearchFunctionNameBody
 from hyperspace.models.auth_dto import AuthDto
 from hyperspace.models.document import Document
 from hyperspace.models.file_dto import FileDto

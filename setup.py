@@ -21,7 +21,7 @@ VERSION = "1.0.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = ["certifi >= 14.05.14","six >= 1.10","python_dateutil >= 2.5.3","setuptools >= 21.0.0","urllib3 >= 1.15.1","msgpack"]
 
 setup(
     name=NAME,
