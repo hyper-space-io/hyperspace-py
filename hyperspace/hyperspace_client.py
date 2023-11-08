@@ -88,11 +88,12 @@ class HyperspaceClientApi(HyperspaceApi):
 
         self.api_client.call_api = retry_jwt
 
-    def search(self, body, size, collection_name, function_name: Optional[str] = None, **kwargs):  # noqa: E501
+    def search(self, body, size, collection_name, function_name: Optional[str] = None, fields: Optional[list[str]] = None, **kwargs):  # noqa: E501
         """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
+        :param fields:
         :param async_req bool
         :param SearchFunctionNameBody body: (required)
         :param int size: (required)
@@ -102,10 +103,11 @@ class HyperspaceClientApi(HyperspaceApi):
                  If the method is called asynchronously,
                  returns the request thread.
         """
+        new_body = {"query": body, "fields": fields}
         if function_name is None:
-            return super().search(body, size, collection_name, **kwargs)
+            return super().search(new_body, size, collection_name, **kwargs)
         else:
-            return super().search(body, size, collection_name, function_name=function_name, **kwargs)
+            return super().search(new_body, size, collection_name, function_name=function_name, **kwargs)
 
     def add_batch(self, body, collection_name, **kwargs):
         packed_batch = msgpack.packb(body, use_bin_type=True)

@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import hyperspace
-from hyperspace.models.search_function_name_body import SearchFunctionNameBody  # noqa: E501
+from hyperspace.models.collection_name_search_body import CollectionNameSearchBody  # noqa: E501
 from hyperspace.rest import ApiException
 
 
-class TestSearchFunctionNameBody(unittest.TestCase):
-    """SearchFunctionNameBody unit test stubs"""
+class TestCollectionNameSearchBody(unittest.TestCase):
+    """CollectionNameSearchBody unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestSearchFunctionNameBody(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSearchFunctionNameBody(self):
-        """Test SearchFunctionNameBody"""
+    def testCollectionNameSearchBody(self):
+        """Test CollectionNameSearchBody"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = hyperspace.models.search_function_name_body.SearchFunctionNameBody()  # noqa: E501
+        # model = hyperspace.models.collection_name_search_body.CollectionNameSearchBody()  # noqa: E501
         pass
 
 

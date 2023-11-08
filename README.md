@@ -215,7 +215,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-body = hyperspace.SearchFunctionNameBody() # SearchFunctionNameBody | 
+body = hyperspace.CollectionNameSearchBody() # CollectionNameSearchBody | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str |  (optional)
@@ -274,18 +274,18 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**get_function**](docs/HyperspaceApi.md#get_function) | **GET** /api/v1/{collectionName}/function/{functionName} | Get Function
 *HyperspaceApi* | [**get_schema**](docs/HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 *HyperspaceApi* | [**login**](docs/HyperspaceApi.md#login) | **POST** /api/v1/login | Login
-*HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search/{functionName} | Find top X similar documents in the dataset according to the selected search option.
+*HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 *HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
 *HyperspaceApi* | [**update_document**](docs/HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 ## Documentation For Models
 
  - [AuthDto](docs/AuthDto.md)
+ - [CollectionNameSearchBody](docs/CollectionNameSearchBody.md)
  - [Document](docs/Document.md)
  - [FileDto](docs/FileDto.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [LoginDto](docs/LoginDto.md)
- - [SearchFunctionNameBody](docs/SearchFunctionNameBody.md)
  - [StatusDto](docs/StatusDto.md)
 
 ## Documentation For Authorization

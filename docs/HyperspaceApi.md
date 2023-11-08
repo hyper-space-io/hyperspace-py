@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**get_function**](HyperspaceApi.md#get_function) | **GET** /api/v1/{collectionName}/function/{functionName} | Get Function
 [**get_schema**](HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 [**login**](HyperspaceApi.md#login) | **POST** /api/v1/login | Login
-[**search**](HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search/{functionName} | Find top X similar documents in the dataset according to the selected search option.
+[**search**](HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 [**set_function**](HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
 [**update_document**](HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_info**
-> SearchFunctionNameBody collections_info()
+> CollectionNameSearchBody collections_info()
 
 Get the information of all the collections
 
@@ -196,7 +196,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**SearchFunctionNameBody**](SearchFunctionNameBody.md)
+[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
 
 ### Authorization
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_function**
-> SearchFunctionNameBody get_function(collection_name, function_name)
+> CollectionNameSearchBody get_function(collection_name, function_name)
 
 Get Function
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchFunctionNameBody**](SearchFunctionNameBody.md)
+[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
 
 ### Authorization
 
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_schema**
-> SearchFunctionNameBody get_schema(collection_name)
+> CollectionNameSearchBody get_schema(collection_name)
 
 Get schema of collection
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchFunctionNameBody**](SearchFunctionNameBody.md)
+[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
 
 ### Authorization
 
@@ -642,7 +642,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search**
-> SearchFunctionNameBody search(body, size, collection_name, function_name=function_name)
+> CollectionNameSearchBody search(body, size, collection_name, function_name=function_name)
 
 Find top X similar documents in the dataset according to the selected search option.
 
@@ -657,7 +657,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-body = hyperspace.SearchFunctionNameBody() # SearchFunctionNameBody | 
+body = hyperspace.CollectionNameSearchBody() # CollectionNameSearchBody | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str |  (optional)
@@ -674,14 +674,14 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**SearchFunctionNameBody**](SearchFunctionNameBody.md)|  | 
+ **body** | [**CollectionNameSearchBody**](CollectionNameSearchBody.md)|  | 
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
  **function_name** | **str**|  | [optional] 
 
 ### Return type
 
-[**SearchFunctionNameBody**](SearchFunctionNameBody.md)
+[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# SearchFunctionNameBody
+# CollectionNameSearchBody
 
 ## Properties
 Name | Type | Description | Notes

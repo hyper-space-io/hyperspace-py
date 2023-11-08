@@ -344,7 +344,7 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -364,7 +364,7 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -412,7 +412,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SearchFunctionNameBody',  # noqa: E501
+            response_type='CollectionNameSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1025,7 +1025,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str function_name: (required)
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1047,7 +1047,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str function_name: (required)
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1107,7 +1107,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SearchFunctionNameBody',  # noqa: E501
+            response_type='CollectionNameSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1125,7 +1125,7 @@ class HyperspaceApi(object):
 
         :param async_req bool
         :param str collection_name: (required)
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1146,7 +1146,7 @@ class HyperspaceApi(object):
 
         :param async_req bool
         :param str collection_name: (required)
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1200,7 +1200,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SearchFunctionNameBody',  # noqa: E501
+            response_type='CollectionNameSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1314,11 +1314,11 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SearchFunctionNameBody body: (required)
+        :param CollectionNameSearchBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1338,11 +1338,11 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param SearchFunctionNameBody body: (required)
+        :param CollectionNameSearchBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
-        :return: SearchFunctionNameBody
+        :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1407,14 +1407,14 @@ class HyperspaceApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v1/{collectionName}/search/{functionName}', 'POST',
+            '/api/v1/{collectionName}/search', 'POST',
             path_params,
             query_params,
             header_params,
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='SearchFunctionNameBody',  # noqa: E501
+            response_type='CollectionNameSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
