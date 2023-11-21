@@ -10,7 +10,7 @@
 """
 from __future__ import absolute_import
 
-from typing import Optional
+from typing import Optional, List, Dict
 import msgpack
 from types import MethodType
 from hyperspace.rest import RESTResponse
@@ -109,13 +109,16 @@ class HyperspaceClientApi(HyperspaceApi):
         else:
             return super().search(new_body, size, collection_name, function_name=function_name, **kwargs)
 
-    def add_batch(self, body, collection_name, **kwargs):
-        packed_batch = msgpack.packb(body, use_bin_type=True)
+    def add_batch(self, batch: List[Dict], collection_name: str, **kwargs):
+        msgpack_docs = []
+        for doc in batch:
+            msgpack_docs.append(msgpack.packb(doc))
+        packed_batch = msgpack.packb(msgpack_docs)
 
         return super().add_batch(packed_batch, collection_name, **kwargs)
 
     def add_document(self, body, collection_name, **kwargs):
-        packed_row = msgpack.packb(body, use_bin_type=True)
+        packed_row = msgpack.packb(body)
 
         return super().add_document(packed_row, collection_name, **kwargs)
 
