@@ -16,13 +16,18 @@ from types import MethodType
 from hyperspace.rest import RESTResponse
 import logging
 from urllib.parse import urlencode
-
+import re
 import hyperspace.models
 from hyperspace.api.hyperspace_api import HyperspaceApi
 from hyperspace.api_client import *
 
 # python 2 and python 3 compatibility library
 from hyperspace.rest import ApiException
+
+import types
+import tempfile
+import inspect
+
 
 try:
     import urllib3
@@ -51,7 +56,6 @@ class HyperspaceClientApi(HyperspaceApi):
     :param cookie: a cookie to include in the header when making calls
         to the API
     """
-
     def __init__(self, host, username, password, token=None):
         self.configuration = hyperspace.configuration.Configuration()
         self.configuration.host = host
@@ -67,10 +71,8 @@ class HyperspaceClientApi(HyperspaceApi):
             self._token = "Bearer " + login_response.token
         api_client = hyperspace.api_client.ApiClient(configuration=self.configuration, header_name='Authorization',
                                                      header_value=self._token)
-
         super().__init__(api_client=api_client)
         old_func_call_api = self.api_client.call_api
-
         self.api_client.rest_client.request = MethodType(better_request, self.api_client.rest_client)
 
         def retry_jwt(*args, **kwargs):
@@ -88,7 +90,7 @@ class HyperspaceClientApi(HyperspaceApi):
 
         self.api_client.call_api = retry_jwt
 
-    def search(self, body, size, collection_name, function_name: Optional[str] = None, fields: Optional[list[str]] = None, **kwargs):  # noqa: E501
+    def search(self, body, size, collection_name, function_name: Optional[str] = None, fields: Optional[List[str]] = None, **kwargs):  # noqa: E501
         """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -130,6 +132,20 @@ class HyperspaceClientApi(HyperspaceApi):
     def update_document(self, body, collection_name, **kwargs):
         packed_row_to_update = msgpack.packb(body, use_bin_type=True)
         return super().update_document(packed_row_to_update, collection_name, **kwargs)
+
+    def set_function(self, file, collection_name, function_name = None, **kwargs):
+        if isinstance(file, types.FunctionType):
+            if function_name is None:
+                function_name = file.__name__
+            source_code = inspect.getsource(file)
+            with tempfile.NamedTemporaryFile(delete = True, mode='w+', suffix='.py') as temp_file:
+                temp_file.write(source_code)
+                temp_file.flush()  # Ensure all data is written to the file
+                temp_file.seek(0)  # Rewind the file to the beginning
+                super().set_function(temp_file.name, collection_name, function_name, **kwargs)
+        else:
+            super().set_function(file, collection_name, function_name, **kwargs)
+
 
 
 def better_request(self, method, url, query_params=None, headers=None,
@@ -254,3 +270,4 @@ def better_request(self, method, url, query_params=None, headers=None,
         raise ApiException(http_resp=r)
 
     return r
+

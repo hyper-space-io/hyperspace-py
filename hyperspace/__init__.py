@@ -28,3 +28,4 @@ from hyperspace.models.inline_response200 import InlineResponse200
 from hyperspace.models.login_dto import LoginDto
 from hyperspace.models.status_dto import StatusDto
 from hyperspace.hyperspace_client import HyperspaceClientApi
+from hyperspace.ranking_logic_functions import *
