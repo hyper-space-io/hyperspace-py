@@ -142,9 +142,9 @@ class HyperspaceClientApi(HyperspaceApi):
                 temp_file.write(source_code)
                 temp_file.flush()  # Ensure all data is written to the file
                 temp_file.seek(0)  # Rewind the file to the beginning
-                super().set_function(temp_file.name, collection_name, function_name, **kwargs)
+                return super().set_function(temp_file.name, collection_name, function_name, **kwargs)
         else:
-            super().set_function(file, collection_name, function_name, **kwargs)
+            return super().set_function(file, collection_name, function_name, **kwargs)
 
 
 
