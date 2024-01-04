@@ -20,7 +20,8 @@ import re
 import hyperspace.models
 from hyperspace.api.hyperspace_api import HyperspaceApi
 from hyperspace.api_client import *
-
+import os
+import stat
 # python 2 and python 3 compatibility library
 from hyperspace.rest import ApiException
 
@@ -141,6 +142,7 @@ class HyperspaceClientApi(HyperspaceApi):
             with tempfile.NamedTemporaryFile(delete = True, mode='w+', suffix='.py') as temp_file:
                 temp_file.write(source_code)
                 temp_file.flush()  # Ensure all data is written to the file
+                os.chmod(temp_file.name, stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
                 temp_file.seek(0)  # Rewind the file to the beginning
                 return super().set_function(temp_file.name, collection_name, function_name, **kwargs)
         else:
