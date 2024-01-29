@@ -150,6 +150,7 @@ class HyperspaceClientApi(HyperspaceApi):
 
 
 
+
 def better_request(self, method, url, query_params=None, headers=None,
                    body=None, post_params=None, _preload_content=True,
                    _request_timeout=None):
