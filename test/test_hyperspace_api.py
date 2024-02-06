@@ -91,6 +91,13 @@ class TestHyperspaceApi(unittest.TestCase):
         """
         pass
 
+    def test_dsl_search(self):
+        """Test case for dsl_search
+
+        Find top X similar documents in the dataset using Elasticsearch DSL query  # noqa: E501
+        """
+        pass
+
     def test_get_document(self):
         """Test case for get_document
 

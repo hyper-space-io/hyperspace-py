@@ -166,6 +166,20 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+body = hyperspace.CollectionNameDslSearchBody() # CollectionNameDslSearchBody | 
+size = 56 # int | 
+collection_name = 'collection_name_example' # str | 
+
+try:
+    # Find top X similar documents in the dataset using Elasticsearch DSL query
+    api_response = api_instance.dsl_search(body, size, collection_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->dsl_search: %s\n" % e)
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 collection_name = 'collection_name_example' # str | 
 document_id = 'document_id_example' # str | 
 
@@ -270,6 +284,7 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**delete_collection**](docs/HyperspaceApi.md#delete_collection) | **GET** /api/v1/collection/{collectionName} | Delete a collection
 *HyperspaceApi* | [**delete_document**](docs/HyperspaceApi.md#delete_document) | **GET** /api/v1/{collectionName}/document/delete | Delete document by Id
 *HyperspaceApi* | [**delete_function**](docs/HyperspaceApi.md#delete_function) | **GET** /api/v1/{collectionName}/function/delete/{functionName} | Delete function by name
+*HyperspaceApi* | [**dsl_search**](docs/HyperspaceApi.md#dsl_search) | **POST** /api/v1/{collectionName}/dsl_search | Find top X similar documents in the dataset using Elasticsearch DSL query
 *HyperspaceApi* | [**get_document**](docs/HyperspaceApi.md#get_document) | **GET** /api/v1/{collectionName}/document/get | Find document by Id
 *HyperspaceApi* | [**get_function**](docs/HyperspaceApi.md#get_function) | **GET** /api/v1/{collectionName}/function/{functionName} | Get Function
 *HyperspaceApi* | [**get_schema**](docs/HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
@@ -281,6 +296,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AuthDto](docs/AuthDto.md)
+ - [CollectionNameDslSearchBody](docs/CollectionNameDslSearchBody.md)
  - [CollectionNameSearchBody](docs/CollectionNameSearchBody.md)
  - [Document](docs/Document.md)
  - [FileDto](docs/FileDto.md)

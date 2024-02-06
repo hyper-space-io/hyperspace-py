@@ -344,7 +344,7 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: CollectionNameSearchBody
+        :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -364,7 +364,7 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: CollectionNameSearchBody
+        :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -412,7 +412,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CollectionNameSearchBody',  # noqa: E501
+            response_type='CollectionNameDslSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -913,6 +913,119 @@ class HyperspaceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def dsl_search(self, body, size, collection_name, **kwargs):  # noqa: E501
+        """Find top X similar documents in the dataset using Elasticsearch DSL query  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dsl_search(body, size, collection_name, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CollectionNameDslSearchBody body: (required)
+        :param int size: (required)
+        :param str collection_name: (required)
+        :return: CollectionNameDslSearchBody
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.dsl_search_with_http_info(body, size, collection_name, **kwargs)  # noqa: E501
+        else:
+            (data) = self.dsl_search_with_http_info(body, size, collection_name, **kwargs)  # noqa: E501
+            return data
+
+    def dsl_search_with_http_info(self, body, size, collection_name, **kwargs):  # noqa: E501
+        """Find top X similar documents in the dataset using Elasticsearch DSL query  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.dsl_search_with_http_info(body, size, collection_name, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param CollectionNameDslSearchBody body: (required)
+        :param int size: (required)
+        :param str collection_name: (required)
+        :return: CollectionNameDslSearchBody
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['body', 'size', 'collection_name']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method dsl_search" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `dsl_search`")  # noqa: E501
+        # verify the required parameter 'size' is set
+        if ('size' not in params or
+                params['size'] is None):
+            raise ValueError("Missing the required parameter `size` when calling `dsl_search`")  # noqa: E501
+        # verify the required parameter 'collection_name' is set
+        if ('collection_name' not in params or
+                params['collection_name'] is None):
+            raise ValueError("Missing the required parameter `collection_name` when calling `dsl_search`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        if 'collection_name' in params:
+            path_params['collectionName'] = params['collection_name']  # noqa: E501
+
+        query_params = []
+        if 'size' in params:
+            query_params.append(('size', params['size']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'body' in params:
+            body_params = params['body']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearer']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/api/v1/{collectionName}/dsl_search', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='CollectionNameDslSearchBody',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=params.get('async_req'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_document(self, collection_name, document_id, **kwargs):  # noqa: E501
         """Find document by Id  # noqa: E501
 
@@ -1025,7 +1138,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str function_name: (required)
-        :return: CollectionNameSearchBody
+        :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1047,7 +1160,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str function_name: (required)
-        :return: CollectionNameSearchBody
+        :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1107,7 +1220,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CollectionNameSearchBody',  # noqa: E501
+            response_type='CollectionNameDslSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1125,7 +1238,7 @@ class HyperspaceApi(object):
 
         :param async_req bool
         :param str collection_name: (required)
-        :return: CollectionNameSearchBody
+        :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1146,7 +1259,7 @@ class HyperspaceApi(object):
 
         :param async_req bool
         :param str collection_name: (required)
-        :return: CollectionNameSearchBody
+        :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1200,7 +1313,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CollectionNameSearchBody',  # noqa: E501
+            response_type='CollectionNameDslSearchBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

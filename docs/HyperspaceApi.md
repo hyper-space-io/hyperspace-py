@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**delete_collection**](HyperspaceApi.md#delete_collection) | **GET** /api/v1/collection/{collectionName} | Delete a collection
 [**delete_document**](HyperspaceApi.md#delete_document) | **GET** /api/v1/{collectionName}/document/delete | Delete document by Id
 [**delete_function**](HyperspaceApi.md#delete_function) | **GET** /api/v1/{collectionName}/function/delete/{functionName} | Delete function by name
+[**dsl_search**](HyperspaceApi.md#dsl_search) | **POST** /api/v1/{collectionName}/dsl_search | Find top X similar documents in the dataset using Elasticsearch DSL query
 [**get_document**](HyperspaceApi.md#get_document) | **GET** /api/v1/{collectionName}/document/get | Find document by Id
 [**get_function**](HyperspaceApi.md#get_function) | **GET** /api/v1/{collectionName}/function/{functionName} | Get Function
 [**get_schema**](HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
@@ -167,7 +168,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_info**
-> CollectionNameSearchBody collections_info()
+> CollectionNameDslSearchBody collections_info()
 
 Get the information of all the collections
 
@@ -196,7 +197,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
+[**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)
 
 ### Authorization
 
@@ -450,6 +451,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **dsl_search**
+> CollectionNameDslSearchBody dsl_search(body, size, collection_name)
+
+Find top X similar documents in the dataset using Elasticsearch DSL query
+
+### Example
+```python
+from __future__ import print_function
+import time
+import hyperspace
+from hyperspace.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+body = hyperspace.CollectionNameDslSearchBody() # CollectionNameDslSearchBody | 
+size = 56 # int | 
+collection_name = 'collection_name_example' # str | 
+
+try:
+    # Find top X similar documents in the dataset using Elasticsearch DSL query
+    api_response = api_instance.dsl_search(body, size, collection_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->dsl_search: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)|  | 
+ **size** | **int**|  | 
+ **collection_name** | **str**|  | 
+
+### Return type
+
+[**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_document**
 > InlineResponse200 get_document(collection_name, document_id)
 
@@ -500,7 +552,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_function**
-> CollectionNameSearchBody get_function(collection_name, function_name)
+> CollectionNameDslSearchBody get_function(collection_name, function_name)
 
 Get Function
 
@@ -535,7 +587,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
+[**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)
 
 ### Authorization
 
@@ -549,7 +601,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_schema**
-> CollectionNameSearchBody get_schema(collection_name)
+> CollectionNameDslSearchBody get_schema(collection_name)
 
 Get schema of collection
 
@@ -582,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
+[**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)
 
 ### Authorization
 
