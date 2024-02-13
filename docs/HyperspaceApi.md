@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**get_schema**](HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 [**login**](HyperspaceApi.md#login) | **POST** /api/v1/login | Login
 [**search**](HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
-[**set_function**](HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
+[**set_function**](HyperspaceApi.md#set_function) | **POST** /api/v1/{collectionName}/function/{functionName} | Set Function
 [**update_document**](HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 # **add_batch**
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **collections_info**
-> CollectionNameDslSearchBody collections_info()
+> FunctionFunctionNameBody collections_info()
 
 Get the information of all the collections
 
@@ -197,7 +197,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)
+[**FunctionFunctionNameBody**](FunctionFunctionNameBody.md)
 
 ### Authorization
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_collection**
-> InlineResponse200 create_collection(file, collection_name)
+> CollectionCollectionNameBody create_collection(body, collection_name)
 
 Create a new collection
 
@@ -273,12 +273,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-file = 'file_example' # str | 
+body = hyperspace.CollectionCollectionNameBody() # CollectionCollectionNameBody | 
 collection_name = 'collection_name_example' # str | 
 
 try:
     # Create a new collection
-    api_response = api_instance.create_collection(file, collection_name)
+    api_response = api_instance.create_collection(body, collection_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->create_collection: %s\n" % e)
@@ -288,12 +288,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **str**|  | 
+ **body** | [**CollectionCollectionNameBody**](CollectionCollectionNameBody.md)|  | 
  **collection_name** | **str**|  | 
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**CollectionCollectionNameBody**](CollectionCollectionNameBody.md)
 
 ### Authorization
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_document**
-> InlineResponse200 get_document(collection_name, document_id)
+> CollectionCollectionNameBody get_document(collection_name, document_id)
 
 Find document by Id
 
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**CollectionCollectionNameBody**](CollectionCollectionNameBody.md)
 
 ### Authorization
 
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_function**
-> StatusDto set_function(file, collection_name, function_name)
+> StatusDto set_function(body, collection_name, function_name)
 
 Set Function
 
@@ -762,13 +762,13 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-file = 'file_example' # str | 
+body = hyperspace.FunctionFunctionNameBody() # FunctionFunctionNameBody | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str | 
 
 try:
     # Set Function
-    api_response = api_instance.set_function(file, collection_name, function_name)
+    api_response = api_instance.set_function(body, collection_name, function_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->set_function: %s\n" % e)
@@ -778,7 +778,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **str**|  | 
+ **body** | [**FunctionFunctionNameBody**](FunctionFunctionNameBody.md)|  | 
  **collection_name** | **str**|  | 
  **function_name** | **str**|  | 
 
@@ -792,7 +792,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: text/plain
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

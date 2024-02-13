@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import hyperspace
-from hyperspace.models.inline_response200 import InlineResponse200  # noqa: E501
+from hyperspace.models.function_function_name_body import FunctionFunctionNameBody  # noqa: E501
 from hyperspace.rest import ApiException
 
 
-class TestInlineResponse200(unittest.TestCase):
-    """InlineResponse200 unit test stubs"""
+class TestFunctionFunctionNameBody(unittest.TestCase):
+    """FunctionFunctionNameBody unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestInlineResponse200(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testInlineResponse200(self):
-        """Test InlineResponse200"""
+    def testFunctionFunctionNameBody(self):
+        """Test FunctionFunctionNameBody"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = hyperspace.models.inline_response200.InlineResponse200()  # noqa: E501
+        # model = hyperspace.models.function_function_name_body.FunctionFunctionNameBody()  # noqa: E501
         pass
 
 

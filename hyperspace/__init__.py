@@ -21,11 +21,11 @@ from hyperspace.api_client import ApiClient
 from hyperspace.configuration import Configuration
 # import models into sdk package
 from hyperspace.models.auth_dto import AuthDto
+from hyperspace.models.collection_collection_name_body import CollectionCollectionNameBody
 from hyperspace.models.collection_name_dsl_search_body import CollectionNameDslSearchBody
 from hyperspace.models.collection_name_search_body import CollectionNameSearchBody
 from hyperspace.models.document import Document
-from hyperspace.models.file_dto import FileDto
-from hyperspace.models.inline_response200 import InlineResponse200
+from hyperspace.models.function_function_name_body import FunctionFunctionNameBody
 from hyperspace.models.login_dto import LoginDto
 from hyperspace.models.status_dto import StatusDto
 from hyperspace.hyperspace_client import HyperspaceClientApi

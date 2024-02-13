@@ -344,7 +344,7 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: CollectionNameDslSearchBody
+        :return: FunctionFunctionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -364,7 +364,7 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :return: CollectionNameDslSearchBody
+        :return: FunctionFunctionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -412,7 +412,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CollectionNameDslSearchBody',  # noqa: E501
+            response_type='FunctionFunctionNameBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -513,45 +513,45 @@ class HyperspaceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_collection(self, file, collection_name, **kwargs):  # noqa: E501
+    def create_collection(self, body, collection_name, **kwargs):  # noqa: E501
         """Create a new collection  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_collection(file, collection_name, async_req=True)
+        >>> thread = api.create_collection(body, collection_name, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str file: (required)
+        :param CollectionCollectionNameBody body: (required)
         :param str collection_name: (required)
-        :return: InlineResponse200
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_collection_with_http_info(file, collection_name, **kwargs)  # noqa: E501
+            return self.create_collection_with_http_info(body, collection_name, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_collection_with_http_info(file, collection_name, **kwargs)  # noqa: E501
+            (data) = self.create_collection_with_http_info(body, collection_name, **kwargs)  # noqa: E501
             return data
 
-    def create_collection_with_http_info(self, file, collection_name, **kwargs):  # noqa: E501
+    def create_collection_with_http_info(self, body, collection_name, **kwargs):  # noqa: E501
         """Create a new collection  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_collection_with_http_info(file, collection_name, async_req=True)
+        >>> thread = api.create_collection_with_http_info(body, collection_name, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str file: (required)
+        :param CollectionCollectionNameBody body: (required)
         :param str collection_name: (required)
-        :return: InlineResponse200
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['file', 'collection_name']  # noqa: E501
+        all_params = ['body', 'collection_name']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -566,10 +566,10 @@ class HyperspaceApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'file' is set
-        if ('file' not in params or
-                params['file'] is None):
-            raise ValueError("Missing the required parameter `file` when calling `create_collection`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_collection`")  # noqa: E501
         # verify the required parameter 'collection_name' is set
         if ('collection_name' not in params or
                 params['collection_name'] is None):
@@ -587,17 +587,17 @@ class HyperspaceApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/form-data'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -610,7 +610,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='CollectionCollectionNameBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1037,7 +1037,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str document_id: (required)
-        :return: InlineResponse200
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1059,7 +1059,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str document_id: (required)
-        :return: InlineResponse200
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1119,7 +1119,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='InlineResponse200',  # noqa: E501
+            response_type='CollectionCollectionNameBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -1535,16 +1535,16 @@ class HyperspaceApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_function(self, file, collection_name, function_name, **kwargs):  # noqa: E501
+    def set_function(self, body, collection_name, function_name, **kwargs):  # noqa: E501
         """Set Function  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_function(file, collection_name, function_name, async_req=True)
+        >>> thread = api.set_function(body, collection_name, function_name, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str file: (required)
+        :param FunctionFunctionNameBody body: (required)
         :param str collection_name: (required)
         :param str function_name: (required)
         :return: StatusDto
@@ -1553,21 +1553,21 @@ class HyperspaceApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.set_function_with_http_info(file, collection_name, function_name, **kwargs)  # noqa: E501
+            return self.set_function_with_http_info(body, collection_name, function_name, **kwargs)  # noqa: E501
         else:
-            (data) = self.set_function_with_http_info(file, collection_name, function_name, **kwargs)  # noqa: E501
+            (data) = self.set_function_with_http_info(body, collection_name, function_name, **kwargs)  # noqa: E501
             return data
 
-    def set_function_with_http_info(self, file, collection_name, function_name, **kwargs):  # noqa: E501
+    def set_function_with_http_info(self, body, collection_name, function_name, **kwargs):  # noqa: E501
         """Set Function  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_function_with_http_info(file, collection_name, function_name, async_req=True)
+        >>> thread = api.set_function_with_http_info(body, collection_name, function_name, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str file: (required)
+        :param FunctionFunctionNameBody body: (required)
         :param str collection_name: (required)
         :param str function_name: (required)
         :return: StatusDto
@@ -1575,7 +1575,7 @@ class HyperspaceApi(object):
                  returns the request thread.
         """
 
-        all_params = ['file', 'collection_name', 'function_name']  # noqa: E501
+        all_params = ['body', 'collection_name', 'function_name']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1590,10 +1590,10 @@ class HyperspaceApi(object):
                 )
             params[key] = val
         del params['kwargs']
-        # verify the required parameter 'file' is set
-        if ('file' not in params or
-                params['file'] is None):
-            raise ValueError("Missing the required parameter `file` when calling `set_function`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in params or
+                params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `set_function`")  # noqa: E501
         # verify the required parameter 'collection_name' is set
         if ('collection_name' not in params or
                 params['collection_name'] is None):
@@ -1617,23 +1617,23 @@ class HyperspaceApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'file' in params:
-            local_var_files['file'] = params['file']  # noqa: E501
 
         body_params = None
+        if 'body' in params:
+            body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/form-data'])  # noqa: E501
+            ['text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v1/{collectionName}/function/{functionName}', 'PUT',
+            '/api/v1/{collectionName}/function/{functionName}', 'POST',
             path_params,
             query_params,
             header_params,

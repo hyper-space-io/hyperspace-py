@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import hyperspace
-from hyperspace.models.file_dto import FileDto  # noqa: E501
+from hyperspace.models.collection_collection_name_body import CollectionCollectionNameBody  # noqa: E501
 from hyperspace.rest import ApiException
 
 
-class TestFileDto(unittest.TestCase):
-    """FileDto unit test stubs"""
+class TestCollectionCollectionNameBody(unittest.TestCase):
+    """CollectionCollectionNameBody unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestFileDto(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testFileDto(self):
-        """Test FileDto"""
+    def testCollectionCollectionNameBody(self):
+        """Test CollectionCollectionNameBody"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = hyperspace.models.file_dto.FileDto()  # noqa: E501
+        # model = hyperspace.models.collection_collection_name_body.CollectionCollectionNameBody()  # noqa: E501
         pass
 
 

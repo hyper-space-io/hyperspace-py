@@ -1,4 +1,4 @@
-# InlineResponse200
+# FunctionFunctionNameBody
 
 ## Properties
 Name | Type | Description | Notes

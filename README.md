@@ -115,12 +115,12 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-file = 'file_example' # str | 
+body = hyperspace.CollectionCollectionNameBody() # CollectionCollectionNameBody | 
 collection_name = 'collection_name_example' # str | 
 
 try:
     # Create a new collection
-    api_response = api_instance.create_collection(file, collection_name)
+    api_response = api_instance.create_collection(body, collection_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->create_collection: %s\n" % e)
@@ -244,13 +244,13 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-file = 'file_example' # str | 
+body = hyperspace.FunctionFunctionNameBody() # FunctionFunctionNameBody | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str | 
 
 try:
     # Set Function
-    api_response = api_instance.set_function(file, collection_name, function_name)
+    api_response = api_instance.set_function(body, collection_name, function_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->set_function: %s\n" % e)
@@ -290,17 +290,17 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**get_schema**](docs/HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 *HyperspaceApi* | [**login**](docs/HyperspaceApi.md#login) | **POST** /api/v1/login | Login
 *HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
-*HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
+*HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **POST** /api/v1/{collectionName}/function/{functionName} | Set Function
 *HyperspaceApi* | [**update_document**](docs/HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 ## Documentation For Models
 
  - [AuthDto](docs/AuthDto.md)
+ - [CollectionCollectionNameBody](docs/CollectionCollectionNameBody.md)
  - [CollectionNameDslSearchBody](docs/CollectionNameDslSearchBody.md)
  - [CollectionNameSearchBody](docs/CollectionNameSearchBody.md)
  - [Document](docs/Document.md)
- - [FileDto](docs/FileDto.md)
- - [InlineResponse200](docs/InlineResponse200.md)
+ - [FunctionFunctionNameBody](docs/FunctionFunctionNameBody.md)
  - [LoginDto](docs/LoginDto.md)
  - [StatusDto](docs/StatusDto.md)
 

@@ -134,19 +134,24 @@ class HyperspaceClientApi(HyperspaceApi):
         packed_row_to_update = msgpack.packb(body, use_bin_type=True)
         return super().update_document(packed_row_to_update, collection_name, **kwargs)
 
-    def set_function(self, file, collection_name, function_name = None, **kwargs):
-        if isinstance(file, types.FunctionType):
+    def set_function(self, function, collection_name, function_name = None, **kwargs):
+        if isinstance(function, types.FunctionType):
             if function_name is None:
-                function_name = file.__name__
-            source_code = inspect.getsource(file)
-            with tempfile.NamedTemporaryFile(delete = True, mode='w+', suffix='.py') as temp_file:
-                temp_file.write(source_code)
-                temp_file.flush()  # Ensure all data is written to the file
-                os.chmod(temp_file.name, stat.S_IRUSR | stat.S_IRGRP | stat.S_IROTH)
-                temp_file.seek(0)  # Rewind the file to the beginning
-                return super().set_function(temp_file.name, collection_name, function_name, **kwargs)
+                function_name = function.__name__
+            body = inspect.getsource(function)
         else:
-            return super().set_function(file, collection_name, function_name, **kwargs)
+            with open(function) as f:
+                body = f.read()
+        return super().set_function(body=body, collection_name=collection_name, function_name=function_name, **kwargs)
+
+    def create_collection(self, schema, collection_name, **kwargs):
+        if isinstance(schema, dict):
+            body = schema
+        else:
+            with open(schema) as json_file:
+                body = json.load(json_file)
+        return super().create_collection(body=body, collection_name=collection_name, **kwargs)
+
 
 
 
