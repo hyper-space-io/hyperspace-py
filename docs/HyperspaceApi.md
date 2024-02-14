@@ -451,7 +451,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_document**
-> InlineResponse200 get_document(collection_name, document_id)
+> InlineResponse200 get_document(collection_name, document_id, metadata_only=metadata_only)
 
 Find document by Id
 
@@ -468,10 +468,11 @@ from pprint import pprint
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 collection_name = 'collection_name_example' # str | 
 document_id = 'document_id_example' # str | 
+metadata_only = true # bool |  (optional)
 
 try:
     # Find document by Id
-    api_response = api_instance.get_document(collection_name, document_id)
+    api_response = api_instance.get_document(collection_name, document_id, metadata_only=metadata_only)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->get_document: %s\n" % e)
@@ -483,6 +484,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_name** | **str**|  | 
  **document_id** | **str**|  | 
+ **metadata_only** | **bool**|  | [optional] 
 
 ### Return type
 

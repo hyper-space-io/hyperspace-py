@@ -125,8 +125,9 @@ class HyperspaceClientApi(HyperspaceApi):
 
         return super().add_document(packed_row, collection_name, **kwargs)
 
-    def get_document(self, collection_name, document_id, **kwargs):
-        vec_to_get = super().get_document(collection_name, document_id, **kwargs)
+    def get_document(self, collection_name, document_id, metadata_only=False, **kwargs):
+        metadata_only = "true" if metadata_only is True else "false"
+        vec_to_get = super().get_document(collection_name, document_id, metadata_only=metadata_only, **kwargs)
         vector = msgpack.unpackb(vec_to_get, raw=False)
         return vector
 
@@ -147,7 +148,6 @@ class HyperspaceClientApi(HyperspaceApi):
                 return super().set_function(temp_file.name, collection_name, function_name, **kwargs)
         else:
             return super().set_function(file, collection_name, function_name, **kwargs)
-
 
 
 

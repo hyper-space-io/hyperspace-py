@@ -168,10 +168,11 @@ except ApiException as e:
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 collection_name = 'collection_name_example' # str | 
 document_id = 'document_id_example' # str | 
+metadata_only = true # bool |  (optional)
 
 try:
     # Find document by Id
-    api_response = api_instance.get_document(collection_name, document_id)
+    api_response = api_instance.get_document(collection_name, document_id, metadata_only=metadata_only)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->get_document: %s\n" % e)
