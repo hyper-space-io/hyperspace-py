@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**get_schema**](HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 [**login**](HyperspaceApi.md#login) | **POST** /api/v1/login | Login
 [**search**](HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
-[**set_function**](HyperspaceApi.md#set_function) | **POST** /api/v1/{collectionName}/function/{functionName} | Set Function
+[**set_function**](HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
 [**update_document**](HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 # **add_batch**

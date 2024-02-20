@@ -152,6 +152,10 @@ class HyperspaceClientApi(HyperspaceApi):
                 body = json.load(json_file)
         return super().create_collection(body=body, collection_name=collection_name, **kwargs)
 
+    def get_function(self, collection_name, function_name, **kwargs):
+        function =super().get_function(collection_name=collection_name, function_name=function_name, **kwargs)
+        return function.decode("utf-8")
+
 
 
 

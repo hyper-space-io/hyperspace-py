@@ -290,7 +290,7 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**get_schema**](docs/HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 *HyperspaceApi* | [**login**](docs/HyperspaceApi.md#login) | **POST** /api/v1/login | Login
 *HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
-*HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **POST** /api/v1/{collectionName}/function/{functionName} | Set Function
+*HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
 *HyperspaceApi* | [**update_document**](docs/HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 ## Documentation For Models
