@@ -1037,6 +1037,7 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str document_id: (required)
+        :param bool metadata_only:
         :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1059,12 +1060,13 @@ class HyperspaceApi(object):
         :param async_req bool
         :param str collection_name: (required)
         :param str document_id: (required)
+        :param bool metadata_only:
         :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['collection_name', 'document_id']  # noqa: E501
+        all_params = ['collection_name', 'document_id', 'metadata_only']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1097,6 +1099,8 @@ class HyperspaceApi(object):
         query_params = []
         if 'document_id' in params:
             query_params.append(('documentId', params['document_id']))  # noqa: E501
+        if 'metadata_only' in params:
+            query_params.append(('metadata_only', params['metadata_only']))  # noqa: E501
 
         header_params = {}
 
