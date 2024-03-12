@@ -1,4 +1,4 @@
-def match(fieldname_doc, fieldname_params=None):
+def match(fieldname_doc, fieldname_params=None, operator="OR"):
     """
     Checks for an exact match between keywords or lists of keywords in the specified fields.
     This function can compare the same field or different fields between the query and the document.
@@ -7,14 +7,17 @@ def match(fieldname_doc, fieldname_params=None):
         fieldname_doc (str): The field name in the document to be checked.
         fieldname_params (str, optional): The field name in the query parameters to be checked.
                                           If None, 'fieldname_doc' is used for both the document and the query.
+        operator(str, optional): operator OR (default) - condition is considered True if any item in the list matches.
+                                 operator AND - condition is considered True only if all items in the list match.
 
     Returns:
         bool: True if there is an exact match between the keywords or any two keywords in the lists, False otherwise.
 
     Example:
-        if match("city", "shipping_city") and match("street"):
+        if match("city", "shipping_city") and match("street") and match("brandIds", operator="AND"):
             # 'city' in the query is compared with 'shipping_city' in the document.
             # 'street' is compared between the query and the document.
+            # 'brandIds' compared between the query and the document and considered True only if all items in the list match.
     """
     pass
 
