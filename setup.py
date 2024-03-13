@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "hyperspace"
-VERSION = "v1.1.180"
+VERSION = "1.1.180"
 # To install the library, run the following
 #
 # python setup.py install
