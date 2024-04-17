@@ -1663,6 +1663,8 @@ class HyperspaceApi(object):
         :param async_req bool
         :param Document body: (required)
         :param str collection_name: (required)
+        :param bool partial_update:
+        :param bool doc_as_upsert:
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1685,12 +1687,14 @@ class HyperspaceApi(object):
         :param async_req bool
         :param Document body: (required)
         :param str collection_name: (required)
+        :param bool partial_update:
+        :param bool doc_as_upsert:
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'collection_name']  # noqa: E501
+        all_params = ['body', 'collection_name', 'partial_update', 'doc_as_upsert']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1721,6 +1725,10 @@ class HyperspaceApi(object):
             path_params['collectionName'] = params['collection_name']  # noqa: E501
 
         query_params = []
+        if 'partial_update' in params:
+            query_params.append(('partialUpdate', params['partial_update']))  # noqa: E501
+        if 'doc_as_upsert' in params:
+            query_params.append(('docAsUpsert', params['doc_as_upsert']))  # noqa: E501
 
         header_params = {}
 

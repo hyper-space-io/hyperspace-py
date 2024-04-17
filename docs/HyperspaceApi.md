@@ -800,7 +800,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_document**
-> str update_document(body, collection_name)
+> str update_document(body, collection_name, partial_update=partial_update, doc_as_upsert=doc_as_upsert)
 
 Update document by Id in the collection
 
@@ -817,10 +817,12 @@ from pprint import pprint
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.Document() # Document | 
 collection_name = 'collection_name_example' # str | 
+partial_update = true # bool |  (optional)
+doc_as_upsert = true # bool |  (optional)
 
 try:
     # Update document by Id in the collection
-    api_response = api_instance.update_document(body, collection_name)
+    api_response = api_instance.update_document(body, collection_name, partial_update=partial_update, doc_as_upsert=doc_as_upsert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->update_document: %s\n" % e)
@@ -832,6 +834,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**Document**](Document.md)|  | 
  **collection_name** | **str**|  | 
+ **partial_update** | **bool**|  | [optional] 
+ **doc_as_upsert** | **bool**|  | [optional] 
 
 ### Return type
 

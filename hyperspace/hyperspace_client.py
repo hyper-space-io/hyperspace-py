@@ -131,9 +131,14 @@ class HyperspaceClientApi(HyperspaceApi):
         vector = msgpack.unpackb(vec_to_get, raw=False)
         return vector
 
-    def update_document(self, body, collection_name, **kwargs):
+    def update_document(self, body, collection_name, partial_update=False, doc_as_upsert=False, **kwargs):
+        partial_update = "true" if partial_update is True else "false"
+        doc_as_upsert = "true" if doc_as_upsert is True else "false"
         packed_row_to_update = msgpack.packb(body, use_bin_type=True)
-        return super().update_document(packed_row_to_update, collection_name, **kwargs)
+        return super().update_document(body=packed_row_to_update,
+                                       collection_name=collection_name,
+                                       partial_update=partial_update,
+                                       doc_as_upsert=doc_as_upsert, **kwargs)
 
     def set_function(self, function, collection_name, function_name = None, **kwargs):
         if isinstance(function, types.FunctionType):

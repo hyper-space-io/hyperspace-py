@@ -261,10 +261,12 @@ except ApiException as e:
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.Document() # Document | 
 collection_name = 'collection_name_example' # str | 
+partial_update = true # bool |  (optional)
+doc_as_upsert = true # bool |  (optional)
 
 try:
     # Update document by Id in the collection
-    api_response = api_instance.update_document(body, collection_name)
+    api_response = api_instance.update_document(body, collection_name, partial_update=partial_update, doc_as_upsert=doc_as_upsert)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->update_document: %s\n" % e)
