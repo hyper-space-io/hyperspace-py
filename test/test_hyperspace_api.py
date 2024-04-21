@@ -126,6 +126,13 @@ class TestHyperspaceApi(unittest.TestCase):
         """
         pass
 
+    def test_reset_password(self):
+        """Test case for reset_password
+
+        Reset password  # noqa: E501
+        """
+        pass
+
     def test_search(self):
         """Test case for search
 

@@ -91,6 +91,7 @@ class HyperspaceClientApi(HyperspaceApi):
 
         self.api_client.call_api = retry_jwt
 
+
     def search(self, body, size, collection_name, function_name: Optional[str] = None, fields: Optional[List[str]] = None, **kwargs):  # noqa: E501
         """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
 

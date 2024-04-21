@@ -230,6 +230,17 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+
+try:
+    # Reset password
+    api_response = api_instance.reset_password()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->reset_password: %s\n" % e)
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.CollectionNameSearchBody() # CollectionNameSearchBody | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
@@ -292,6 +303,7 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**get_function**](docs/HyperspaceApi.md#get_function) | **GET** /api/v1/{collectionName}/function/{functionName} | Get Function
 *HyperspaceApi* | [**get_schema**](docs/HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 *HyperspaceApi* | [**login**](docs/HyperspaceApi.md#login) | **POST** /api/v1/login | Login
+*HyperspaceApi* | [**reset_password**](docs/HyperspaceApi.md#reset_password) | **POST** /api/v1/reset_password | Reset password
 *HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 *HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
 *HyperspaceApi* | [**update_document**](docs/HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection

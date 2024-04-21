@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_function**](HyperspaceApi.md#get_function) | **GET** /api/v1/{collectionName}/function/{functionName} | Get Function
 [**get_schema**](HyperspaceApi.md#get_schema) | **GET** /api/v1/{collectionName}/schema | Get schema of collection
 [**login**](HyperspaceApi.md#login) | **POST** /api/v1/login | Login
+[**reset_password**](HyperspaceApi.md#reset_password) | **POST** /api/v1/reset_password | Reset password
 [**search**](HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 [**set_function**](HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
 [**update_document**](HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
@@ -691,6 +692,49 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reset_password**
+> str reset_password()
+
+Reset password
+
+### Example
+```python
+from __future__ import print_function
+import time
+import hyperspace
+from hyperspace.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+
+try:
+    # Reset password
+    api_response = api_instance.reset_password()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->reset_password: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
