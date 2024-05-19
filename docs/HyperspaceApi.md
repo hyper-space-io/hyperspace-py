@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**reset_password**](HyperspaceApi.md#reset_password) | **POST** /api/v1/reset_password | Reset password
 [**search**](HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 [**set_function**](HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
+[**update_by_query**](HyperspaceApi.md#update_by_query) | **POST** /api/v1/{collectionName}/document/update_by_query | Update documents that match a query using a script
 [**update_document**](HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 # **add_batch**
@@ -840,6 +841,55 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: text/plain
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_by_query**
+> str update_by_query(body, collection_name)
+
+Update documents that match a query using a script
+
+### Example
+```python
+from __future__ import print_function
+import time
+import hyperspace
+from hyperspace.rest import ApiException
+from pprint import pprint
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+body = hyperspace.UpdateByQuery() # UpdateByQuery | 
+collection_name = 'collection_name_example' # str | 
+
+try:
+    # Update documents that match a query using a script
+    api_response = api_instance.update_by_query(body, collection_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->update_by_query: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UpdateByQuery**](UpdateByQuery.md)|  | 
+ **collection_name** | **str**|  | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/msgpack
+ - **Accept**: text/plain
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

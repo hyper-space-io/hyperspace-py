@@ -147,6 +147,13 @@ class TestHyperspaceApi(unittest.TestCase):
         """
         pass
 
+    def test_update_by_query(self):
+        """Test case for update_by_query
+
+        Update documents that match a query using a script  # noqa: E501
+        """
+        pass
+
     def test_update_document(self):
         """Test case for update_document
 

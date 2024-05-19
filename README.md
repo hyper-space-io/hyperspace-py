@@ -270,6 +270,19 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+body = hyperspace.UpdateByQuery() # UpdateByQuery | 
+collection_name = 'collection_name_example' # str | 
+
+try:
+    # Update documents that match a query using a script
+    api_response = api_instance.update_by_query(body, collection_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->update_by_query: %s\n" % e)
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.Document() # Document | 
 collection_name = 'collection_name_example' # str | 
 partial_update = true # bool |  (optional)
@@ -306,10 +319,12 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**reset_password**](docs/HyperspaceApi.md#reset_password) | **POST** /api/v1/reset_password | Reset password
 *HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 *HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
+*HyperspaceApi* | [**update_by_query**](docs/HyperspaceApi.md#update_by_query) | **POST** /api/v1/{collectionName}/document/update_by_query | Update documents that match a query using a script
 *HyperspaceApi* | [**update_document**](docs/HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 ## Documentation For Models
 
+ - [AnyOfUpdateByQueryQuery](docs/AnyOfUpdateByQueryQuery.md)
  - [AuthDto](docs/AuthDto.md)
  - [CollectionCollectionNameBody](docs/CollectionCollectionNameBody.md)
  - [CollectionNameDslSearchBody](docs/CollectionNameDslSearchBody.md)
@@ -317,7 +332,9 @@ Class | Method | HTTP request | Description
  - [Document](docs/Document.md)
  - [FunctionFunctionNameBody](docs/FunctionFunctionNameBody.md)
  - [LoginDto](docs/LoginDto.md)
+ - [Script](docs/Script.md)
  - [StatusDto](docs/StatusDto.md)
+ - [UpdateByQuery](docs/UpdateByQuery.md)
 
 ## Documentation For Authorization
 

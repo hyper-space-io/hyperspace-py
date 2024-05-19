@@ -141,6 +141,10 @@ class HyperspaceClientApi(HyperspaceApi):
                                        partial_update=partial_update,
                                        doc_as_upsert=doc_as_upsert, **kwargs)
 
+    def update_by_query(self, body, collection_name, **kwargs):
+        packed_row = msgpack.packb(body)
+        return super().update_by_query(packed_row, collection_name, **kwargs)
+
     def set_function(self, function, collection_name, function_name = None, **kwargs):
         if isinstance(function, types.FunctionType):
             if function_name is None:
