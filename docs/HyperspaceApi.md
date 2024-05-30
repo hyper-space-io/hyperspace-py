@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dsl_search**
-> CollectionNameDslSearchBody dsl_search(body, size, collection_name)
+> CollectionNameDslSearchBody dsl_search(body, size, collection_name, debug=debug)
 
 Find top X similar documents in the dataset using Elasticsearch DSL query
 
@@ -472,10 +472,11 @@ api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.CollectionNameDslSearchBody() # CollectionNameDslSearchBody | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
+debug = true # bool |  (optional)
 
 try:
     # Find top X similar documents in the dataset using Elasticsearch DSL query
-    api_response = api_instance.dsl_search(body, size, collection_name)
+    api_response = api_instance.dsl_search(body, size, collection_name, debug=debug)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->dsl_search: %s\n" % e)
@@ -488,6 +489,7 @@ Name | Type | Description  | Notes
  **body** | [**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)|  | 
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
+ **debug** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -741,7 +743,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search**
-> CollectionNameSearchBody search(body, size, collection_name, function_name=function_name)
+> CollectionNameSearchBody search(body, size, collection_name, function_name=function_name, debug=debug)
 
 Find top X similar documents in the dataset according to the selected search option.
 
@@ -760,10 +762,11 @@ body = hyperspace.CollectionNameSearchBody() # CollectionNameSearchBody |
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str |  (optional)
+debug = true # bool |  (optional)
 
 try:
     # Find top X similar documents in the dataset according to the selected search option.
-    api_response = api_instance.search(body, size, collection_name, function_name=function_name)
+    api_response = api_instance.search(body, size, collection_name, function_name=function_name, debug=debug)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->search: %s\n" % e)
@@ -777,6 +780,7 @@ Name | Type | Description  | Notes
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
  **function_name** | **str**|  | [optional] 
+ **debug** | **bool**|  | [optional] 
 
 ### Return type
 

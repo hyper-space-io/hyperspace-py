@@ -113,6 +113,20 @@ class HyperspaceClientApi(HyperspaceApi):
         else:
             return super().search(new_body, size, collection_name, function_name=function_name, **kwargs)
 
+    def dsl_search(self, body, size, collection_name, **kwargs):  # noqa: E501
+        """
+        Find top X similar documents in the dataset using Elasticsearch DSL query  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        :param body:
+        :param int size: (required)
+        :param str collection_name: (required)
+        :param async_req bool
+        """
+        return super().dsl_search(body=body, size=size, collection_name=collection_name, **kwargs)
+
     def add_batch(self, batch: List[Dict], collection_name: str, **kwargs):
         msgpack_docs = []
         for doc in batch:

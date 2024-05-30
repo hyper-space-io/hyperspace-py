@@ -925,6 +925,7 @@ class HyperspaceApi(object):
         :param CollectionNameDslSearchBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
+        :param bool debug:
         :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
@@ -948,12 +949,13 @@ class HyperspaceApi(object):
         :param CollectionNameDslSearchBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
+        :param bool debug:
         :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'size', 'collection_name']  # noqa: E501
+        all_params = ['body', 'size', 'collection_name', 'debug']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -990,6 +992,8 @@ class HyperspaceApi(object):
         query_params = []
         if 'size' in params:
             query_params.append(('size', params['size']))  # noqa: E501
+        if 'debug' in params:
+            query_params.append(('debug', params['debug']))  # noqa: E501
 
         header_params = {}
 
@@ -1520,6 +1524,7 @@ class HyperspaceApi(object):
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
+        :param bool debug:
         :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1544,12 +1549,13 @@ class HyperspaceApi(object):
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
+        :param bool debug:
         :return: CollectionNameSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'size', 'collection_name', 'function_name']  # noqa: E501
+        all_params = ['body', 'size', 'collection_name', 'function_name', 'debug']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1588,6 +1594,8 @@ class HyperspaceApi(object):
             query_params.append(('size', params['size']))  # noqa: E501
         if 'function_name' in params:
             query_params.append(('functionName', params['function_name']))  # noqa: E501
+        if 'debug' in params:
+            query_params.append(('debug', params['debug']))  # noqa: E501
 
         header_params = {}
 
