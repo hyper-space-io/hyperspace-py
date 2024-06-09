@@ -107,7 +107,7 @@ class HyperspaceClientApi(HyperspaceApi):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        new_body = {"query": body, "fields": fields}
+        new_body = msgpack.packb({"query": body, "fields": fields})
         if function_name is None:
             return super().search(new_body, size, collection_name, **kwargs)
         else:

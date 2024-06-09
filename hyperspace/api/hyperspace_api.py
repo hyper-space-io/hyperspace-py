@@ -1520,12 +1520,12 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param CollectionNameSearchBody body: (required)
+        :param Document body: (required)
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
         :param bool debug:
-        :return: CollectionNameSearchBody
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1545,12 +1545,12 @@ class HyperspaceApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param CollectionNameSearchBody body: (required)
+        :param Document body: (required)
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
         :param bool debug:
-        :return: CollectionNameSearchBody
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1611,7 +1611,7 @@ class HyperspaceApi(object):
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
+            ['application/msgpack'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearer']  # noqa: E501
@@ -1624,7 +1624,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='CollectionNameSearchBody',  # noqa: E501
+            response_type='CollectionCollectionNameBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

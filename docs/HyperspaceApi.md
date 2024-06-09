@@ -743,7 +743,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search**
-> CollectionNameSearchBody search(body, size, collection_name, function_name=function_name, debug=debug)
+> CollectionCollectionNameBody search(body, size, collection_name, function_name=function_name, debug=debug)
 
 Find top X similar documents in the dataset according to the selected search option.
 
@@ -758,7 +758,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-body = hyperspace.CollectionNameSearchBody() # CollectionNameSearchBody | 
+body = hyperspace.Document() # Document | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str |  (optional)
@@ -776,7 +776,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**CollectionNameSearchBody**](CollectionNameSearchBody.md)|  | 
+ **body** | [**Document**](Document.md)|  | 
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
  **function_name** | **str**|  | [optional] 
@@ -784,7 +784,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CollectionNameSearchBody**](CollectionNameSearchBody.md)
+[**CollectionCollectionNameBody**](CollectionCollectionNameBody.md)
 
 ### Authorization
 
@@ -792,7 +792,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/msgpack
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -242,7 +242,7 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
-body = hyperspace.CollectionNameSearchBody() # CollectionNameSearchBody | 
+body = hyperspace.Document() # Document | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str |  (optional)
@@ -330,7 +330,6 @@ Class | Method | HTTP request | Description
  - [AuthDto](docs/AuthDto.md)
  - [CollectionCollectionNameBody](docs/CollectionCollectionNameBody.md)
  - [CollectionNameDslSearchBody](docs/CollectionNameDslSearchBody.md)
- - [CollectionNameSearchBody](docs/CollectionNameSearchBody.md)
  - [Document](docs/Document.md)
  - [FunctionFunctionNameBody](docs/FunctionFunctionNameBody.md)
  - [LoginDto](docs/LoginDto.md)
