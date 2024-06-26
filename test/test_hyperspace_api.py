@@ -70,6 +70,13 @@ class TestHyperspaceApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_by_query(self):
+        """Test case for delete_by_query
+
+        Deletes documents that match the specified query.  # noqa: E501
+        """
+        pass
+
     def test_delete_collection(self):
         """Test case for delete_collection
 

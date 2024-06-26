@@ -128,6 +128,19 @@ except ApiException as e:
 
 # create an instance of the API class
 api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
+body = hyperspace.DeleteByQueryRequest() # DeleteByQueryRequest | 
+collection_name = 'collection_name_example' # str | 
+
+try:
+    # Deletes documents that match the specified query.
+    api_response = api_instance.delete_by_query(body, collection_name)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling HyperspaceApi->delete_by_query: %s\n" % e)
+
+
+# create an instance of the API class
+api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 collection_name = 'collection_name_example' # str | 
 
 try:
@@ -310,6 +323,7 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**collections_info**](docs/HyperspaceApi.md#collections_info) | **GET** /api/v1/collectionsInfo | Get the information of all the collections
 *HyperspaceApi* | [**commit**](docs/HyperspaceApi.md#commit) | **GET** /api/v1/{collectionName}/commit | Commit
 *HyperspaceApi* | [**create_collection**](docs/HyperspaceApi.md#create_collection) | **PUT** /api/v1/collection/{collectionName} | Create a new collection
+*HyperspaceApi* | [**delete_by_query**](docs/HyperspaceApi.md#delete_by_query) | **POST** /api/v1/{collectionName}/delete_by_query | Deletes documents that match the specified query.
 *HyperspaceApi* | [**delete_collection**](docs/HyperspaceApi.md#delete_collection) | **GET** /api/v1/collection/{collectionName} | Delete a collection
 *HyperspaceApi* | [**delete_document**](docs/HyperspaceApi.md#delete_document) | **GET** /api/v1/{collectionName}/document/delete | Delete document by Id
 *HyperspaceApi* | [**delete_function**](docs/HyperspaceApi.md#delete_function) | **GET** /api/v1/{collectionName}/function/delete/{functionName} | Delete function by name
@@ -330,6 +344,8 @@ Class | Method | HTTP request | Description
  - [AuthDto](docs/AuthDto.md)
  - [CollectionCollectionNameBody](docs/CollectionCollectionNameBody.md)
  - [CollectionNameDslSearchBody](docs/CollectionNameDslSearchBody.md)
+ - [DeleteByQueryRequest](docs/DeleteByQueryRequest.md)
+ - [DeleteByQueryResponse](docs/DeleteByQueryResponse.md)
  - [Document](docs/Document.md)
  - [FunctionFunctionNameBody](docs/FunctionFunctionNameBody.md)
  - [LoginDto](docs/LoginDto.md)

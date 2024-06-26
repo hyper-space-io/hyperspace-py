@@ -18,6 +18,8 @@ from hyperspace.models.any_of_update_by_query_query import AnyOfUpdateByQueryQue
 from hyperspace.models.auth_dto import AuthDto
 from hyperspace.models.collection_collection_name_body import CollectionCollectionNameBody
 from hyperspace.models.collection_name_dsl_search_body import CollectionNameDslSearchBody
+from hyperspace.models.delete_by_query_request import DeleteByQueryRequest
+from hyperspace.models.delete_by_query_response import DeleteByQueryResponse
 from hyperspace.models.document import Document
 from hyperspace.models.function_function_name_body import FunctionFunctionNameBody
 from hyperspace.models.login_dto import LoginDto
