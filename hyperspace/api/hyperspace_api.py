@@ -1940,7 +1940,7 @@ class HyperspaceApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v1/{collectionName}/document/update_by_query', 'POST',
+            '/api/v1/{collectionName}/update_by_query', 'POST',
             path_params,
             query_params,
             header_params,
@@ -1968,7 +1968,7 @@ class HyperspaceApi(object):
         :param str collection_name: (required)
         :param bool partial_update:
         :param bool doc_as_upsert:
-        :return: str
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1992,7 +1992,7 @@ class HyperspaceApi(object):
         :param str collection_name: (required)
         :param bool partial_update:
         :param bool doc_as_upsert:
-        :return: str
+        :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2043,7 +2043,7 @@ class HyperspaceApi(object):
             body_params = params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -2060,7 +2060,7 @@ class HyperspaceApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_type='CollectionCollectionNameBody',  # noqa: E501
             auth_settings=auth_settings,
             async_req=params.get('async_req'),
             _return_http_data_only=params.get('_return_http_data_only'),

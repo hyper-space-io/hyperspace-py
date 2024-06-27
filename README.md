@@ -335,7 +335,7 @@ Class | Method | HTTP request | Description
 *HyperspaceApi* | [**reset_password**](docs/HyperspaceApi.md#reset_password) | **POST** /api/v1/reset_password | Reset password
 *HyperspaceApi* | [**search**](docs/HyperspaceApi.md#search) | **POST** /api/v1/{collectionName}/search | Find top X similar documents in the dataset according to the selected search option.
 *HyperspaceApi* | [**set_function**](docs/HyperspaceApi.md#set_function) | **PUT** /api/v1/{collectionName}/function/{functionName} | Set Function
-*HyperspaceApi* | [**update_by_query**](docs/HyperspaceApi.md#update_by_query) | **POST** /api/v1/{collectionName}/document/update_by_query | Update documents that match a query using a script
+*HyperspaceApi* | [**update_by_query**](docs/HyperspaceApi.md#update_by_query) | **POST** /api/v1/{collectionName}/update_by_query | Update documents that match a query using a script
 *HyperspaceApi* | [**update_document**](docs/HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 ## Documentation For Models
