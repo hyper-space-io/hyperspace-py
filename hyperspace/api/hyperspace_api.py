@@ -1030,6 +1030,7 @@ class HyperspaceApi(object):
         :param CollectionNameDslSearchBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
+        :param bool source: Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false.
         :param bool debug:
         :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
@@ -1054,13 +1055,14 @@ class HyperspaceApi(object):
         :param CollectionNameDslSearchBody body: (required)
         :param int size: (required)
         :param str collection_name: (required)
+        :param bool source: Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false.
         :param bool debug:
         :return: CollectionNameDslSearchBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'size', 'collection_name', 'debug']  # noqa: E501
+        all_params = ['body', 'size', 'collection_name', 'source', 'debug']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1097,6 +1099,8 @@ class HyperspaceApi(object):
         query_params = []
         if 'size' in params:
             query_params.append(('size', params['size']))  # noqa: E501
+        if 'source' in params:
+            query_params.append(('_source', params['source']))  # noqa: E501
         if 'debug' in params:
             query_params.append(('debug', params['debug']))  # noqa: E501
 
@@ -1629,6 +1633,7 @@ class HyperspaceApi(object):
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
+        :param bool source: Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false.
         :param bool debug:
         :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
@@ -1654,13 +1659,14 @@ class HyperspaceApi(object):
         :param int size: (required)
         :param str collection_name: (required)
         :param str function_name:
+        :param bool source: Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false.
         :param bool debug:
         :return: CollectionCollectionNameBody
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'size', 'collection_name', 'function_name', 'debug']  # noqa: E501
+        all_params = ['body', 'size', 'collection_name', 'function_name', 'source', 'debug']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1699,6 +1705,8 @@ class HyperspaceApi(object):
             query_params.append(('size', params['size']))  # noqa: E501
         if 'function_name' in params:
             query_params.append(('functionName', params['function_name']))  # noqa: E501
+        if 'source' in params:
+            query_params.append(('_source', params['source']))  # noqa: E501
         if 'debug' in params:
             query_params.append(('debug', params['debug']))  # noqa: E501
 

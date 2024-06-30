@@ -92,40 +92,17 @@ class HyperspaceClientApi(HyperspaceApi):
         self.api_client.call_api = retry_jwt
 
 
-    def search(self, body, size, collection_name, function_name: Optional[str] = None, fields: Optional[List[str]] = None, **kwargs):  # noqa: E501
-        """Find top X similar documents in the dataset according to the selected search option.  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        :param fields:
-        :param async_req bool
-        :param SearchFunctionNameBody body: (required)
-        :param int size: (required)
-        :param str collection_name: (required)
-        :param str function_name:
-        :return: SearchFunctionNameBody
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
+    def search(self, body, size, collection_name, function_name: Optional[str] = None, fields: Optional[List[str]] = None, source=False, **kwargs):  # noqa: E501
+        source = "true" if source is True else "false"
         new_body = msgpack.packb({"query": body, "fields": fields})
         if function_name is None:
-            return super().search(new_body, size, collection_name, **kwargs)
+            return super().search(new_body, size, collection_name, source=source, **kwargs)
         else:
-            return super().search(new_body, size, collection_name, function_name=function_name, **kwargs)
+            return super().search(new_body, size, collection_name, function_name=function_name, source=source, **kwargs)
 
-    def dsl_search(self, body, size, collection_name, **kwargs):  # noqa: E501
-        """
-        Find top X similar documents in the dataset using Elasticsearch DSL query  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        :param body:
-        :param int size: (required)
-        :param str collection_name: (required)
-        :param async_req bool
-        """
-        return super().dsl_search(body=body, size=size, collection_name=collection_name, **kwargs)
+    def dsl_search(self, body, size, collection_name, source=False, **kwargs):  # noqa: E501
+        source = "true" if source is True else "false"
+        return super().dsl_search(body=body, size=size, collection_name=collection_name, source=source, **kwargs)
 
     def add_batch(self, batch: List[Dict], collection_name: str, **kwargs):
         msgpack_docs = []
