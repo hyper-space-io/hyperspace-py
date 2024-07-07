@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **dsl_search**
-> CollectionNameDslSearchBody dsl_search(body, size, collection_name, source=source, debug=debug)
+> CollectionNameDslSearchBody dsl_search(body, size, collection_name, options=options, source=source)
 
 Find top X similar documents in the dataset using Elasticsearch DSL query
 
@@ -522,12 +522,12 @@ api_instance = hyperspace.HyperspaceApi(hyperspace.ApiClient(configuration))
 body = hyperspace.CollectionNameDslSearchBody() # CollectionNameDslSearchBody | 
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
+options = 'options_example' # str |  (optional)
 source = true # bool | Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false. (optional)
-debug = true # bool |  (optional)
 
 try:
     # Find top X similar documents in the dataset using Elasticsearch DSL query
-    api_response = api_instance.dsl_search(body, size, collection_name, source=source, debug=debug)
+    api_response = api_instance.dsl_search(body, size, collection_name, options=options, source=source)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->dsl_search: %s\n" % e)
@@ -540,8 +540,8 @@ Name | Type | Description  | Notes
  **body** | [**CollectionNameDslSearchBody**](CollectionNameDslSearchBody.md)|  | 
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
+ **options** | **str**|  | [optional] 
  **source** | **bool**| Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false. | [optional] 
- **debug** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -795,7 +795,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search**
-> CollectionCollectionNameBody search(body, size, collection_name, function_name=function_name, source=source, debug=debug)
+> CollectionCollectionNameBody search(body, size, collection_name, function_name=function_name, options=options, source=source)
 
 Find top X similar documents in the dataset according to the selected search option.
 
@@ -814,12 +814,12 @@ body = hyperspace.Document() # Document |
 size = 56 # int | 
 collection_name = 'collection_name_example' # str | 
 function_name = 'function_name_example' # str |  (optional)
+options = 'options_example' # str |  (optional)
 source = true # bool | Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false. (optional)
-debug = true # bool |  (optional)
 
 try:
     # Find top X similar documents in the dataset according to the selected search option.
-    api_response = api_instance.search(body, size, collection_name, function_name=function_name, source=source, debug=debug)
+    api_response = api_instance.search(body, size, collection_name, function_name=function_name, options=options, source=source)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling HyperspaceApi->search: %s\n" % e)
@@ -833,8 +833,8 @@ Name | Type | Description  | Notes
  **size** | **int**|  | 
  **collection_name** | **str**|  | 
  **function_name** | **str**|  | [optional] 
+ **options** | **str**|  | [optional] 
  **source** | **bool**| Indicates whether source fields are returned for matching documents.These fields are returned in the hits._source property of the search response.Defaults to false. | [optional] 
- **debug** | **bool**|  | [optional] 
 
 ### Return type
 
