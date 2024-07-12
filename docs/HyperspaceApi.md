@@ -26,7 +26,7 @@ Method | HTTP request | Description
 [**update_document**](HyperspaceApi.md#update_document) | **POST** /api/v1/{collectionName}/document/update | Update document by Id in the collection
 
 # **add_batch**
-> StatusDto add_batch(body, collection_name)
+> CollectionCollectionNameBody add_batch(body, collection_name)
 
 Add a new batch to the collection
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusDto**](StatusDto.md)
+[**CollectionCollectionNameBody**](CollectionCollectionNameBody.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_document**
-> StatusDto add_document(body, collection_name)
+> CollectionCollectionNameBody add_document(body, collection_name)
 
 Add a new document to the collection
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusDto**](StatusDto.md)
+[**CollectionCollectionNameBody**](CollectionCollectionNameBody.md)
 
 ### Authorization
 
