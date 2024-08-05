@@ -4,7 +4,7 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_batch**](HyperspaceApi.md#add_batch) | **PUT** /api/v1/{collectionName}/batch | Add a new batch to the collection
+[**add_batch**](HyperspaceApi.md#add_batch) | **POST** /api/v1/{collectionName}/batch | Add a new batch to the collection
 [**add_document**](HyperspaceApi.md#add_document) | **PUT** /api/v1/{collectionName}/document/add | Add a new document to the collection
 [**clear_collection**](HyperspaceApi.md#clear_collection) | **GET** /api/v1/{collectionName}/delete | Clear all collection vectors
 [**collections_info**](HyperspaceApi.md#collections_info) | **GET** /api/v1/collectionsInfo | Get the information of all the collections

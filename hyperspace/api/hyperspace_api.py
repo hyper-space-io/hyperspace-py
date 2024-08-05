@@ -122,7 +122,7 @@ class HyperspaceApi(object):
         auth_settings = ['bearer']  # noqa: E501
 
         return self.api_client.call_api(
-            '/api/v1/{collectionName}/batch', 'PUT',
+            '/api/v1/{collectionName}/batch', 'POST',
             path_params,
             query_params,
             header_params,

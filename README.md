@@ -319,7 +319,7 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*HyperspaceApi* | [**add_batch**](docs/HyperspaceApi.md#add_batch) | **PUT** /api/v1/{collectionName}/batch | Add a new batch to the collection
+*HyperspaceApi* | [**add_batch**](docs/HyperspaceApi.md#add_batch) | **POST** /api/v1/{collectionName}/batch | Add a new batch to the collection
 *HyperspaceApi* | [**add_document**](docs/HyperspaceApi.md#add_document) | **PUT** /api/v1/{collectionName}/document/add | Add a new document to the collection
 *HyperspaceApi* | [**clear_collection**](docs/HyperspaceApi.md#clear_collection) | **GET** /api/v1/{collectionName}/delete | Clear all collection vectors
 *HyperspaceApi* | [**collections_info**](docs/HyperspaceApi.md#collections_info) | **GET** /api/v1/collectionsInfo | Get the information of all the collections
